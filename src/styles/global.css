@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* #192524
+#3C5759
+#959D90
+#D1EBDB
+#D0D5CE
+#EFECE9 */
+
+.main-bg {
+    background: linear-gradient(135deg, #192524 50%, #3C5759);
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+}
+
+.home-left {
+    flex: 1;
+    text-align: center;
+    color: #EFECE9;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-style: bold;
+}
+
+.home-left h1 {
+    font-size: 48px;
+}
+
+.home-left a {
+    font-size: 16px;
+}
+
+.home-right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.home-right img {
+    width: 300px;
+    height: auto;
+    border-radius: 50%;
+    display: block;
+}
+
+.game-button {
+    animation: blink 4s infinite ease-in-out forwards;
+}
+@keyframes blink {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.fade-in {
+    animation: fadeInAnimation 3s ease-in-out forwards;
+}
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

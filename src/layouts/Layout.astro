@@ -1,51 +1,42 @@
 ---
-interface Props {
-	title: string;
-}
+import { AuroraBackground } from '../components/aceternity/aurora';
+import { TypewriterEffect, hello_text } from '../components/aceternity/typewriter-effect';
+import { ViewTransitions, fade } from 'astro:transitions';
+
+import '../styles/global.css';
 
 const { title } = Astro.props;
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+<!DOCTYPE html>
+<html lang="en" transition:animate={fade({ duration: '1s' })}>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{title}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<ViewTransitions />
+</head>
+<body class="main-bg min-h-screen flex items-center justify-center">
+<AuroraBackground client:load>
+<div class="container scale-x-[-1]">
+  <div class="home-left">
+    <div style="margin-bottom: 50px;" transition:persist><TypewriterEffect client:load words={hello_text} /></div>
+	<a id="start-button" href="/menu" class="game-button">PRESS ANY BUTTON</a>
+  </div>
+  <div class="home-right">
+    <slot />
+  </div>
+</div>
+</AuroraBackground>
+
+<script>
+	document.addEventListener('keydown', function(event) {
+		document.getElementById('start-button')!.click();
+	});
+</script>
+
+</body>
 </html>
-<style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
-		background-size: 224px;
-	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	}
-</style>
