@@ -1,20 +1,7 @@
 ---
-import ViewTransitions from "astro/components/ViewTransitions.astro";
-import '../styles/global.css';
-import { fade } from 'astro:transitions';
+import MainMenu from "../layouts/MainMenu.astro";
 ---
 
-<!DOCTYPE html>
-<html lang="en" transition:animate={fade({ duration: '1s' })}>
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Wei Xiang | Menu</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-<ViewTransitions />
-</head>
-<body class="main-bg min-h-screen flex items-center justify-center">
+<body class="main-bg">
+<MainMenu></MainMenu>
 </body>
-</html>

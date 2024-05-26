@@ -1,0 +1,33 @@
+---
+import ViewTransitions from "astro/components/ViewTransitions.astro";
+import '../styles/global.css';
+import { fade } from 'astro:transitions';
+import MenuBar from '../components/MenuBar.astro'
+import { Spotlight } from "../components/aceternity/spotlight";
+import { Boxes } from "../components/aceternity/background-boxes";
+---
+
+<!DOCTYPE html>
+<html lang="en" transition:animate={fade({ duration: '1s' })}>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wei Xiang | Menu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<ViewTransitions />
+</head>
+<body>
+<Boxes client:load/>
+<div class="container" style="height: 100%;">
+    <div class="home-left" style="height: 100%;">
+        <MenuBar />
+    </div>
+    <div class="home-right" style="height: 100%; justify-items: center; align-items: center;">
+        <Spotlight fill="white" />
+        <h1 class="glitch-text" title="MENU">MENU</h1>
+    </div>
+</div>
+</body>
+</html>
